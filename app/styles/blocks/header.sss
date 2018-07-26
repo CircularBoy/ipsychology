@@ -1,0 +1,169 @@
+.header
+  padding: 9px 0 10px @sm 20px 0
+  position: fixed 0 0 null 0
+  z-index: 9
+  transition: .3s ease, transform .5s ease .1s
+  opacity: 0
+  will-change: padding, transform, opacity
+  transform: translateY(-67px)
+  overflow: @sm-down hidden
+  max-height: @sm-down 70px
+
+  &--is-load
+    transform: translateY(0)
+    opacity: 1
+
+  &:before, &:after
+    visibility: hidden
+    transform: translateY(0)
+    width: 100%
+
+  &:before
+    background: linear-gradient(309.51deg, #0DD0FB -3.25%, #036FF5 83.47%)
+
+  &:after
+    background: linear-gradient(309.51deg, #0DD0FB -8.06%, #036FF5 82.7%)
+
+  &--minify
+    background: linear-gradient(10.54deg, #050E26 0%, #0B2265 86.36%, #0B2265 86.36%)
+    padding: 9px 0 10px @sm 9px 0 10px
+
+    ^&__logo
+      size: 118px 45px
+      margin-right: 82px
+
+    ^&__nav
+      position: @sm-down absolute
+
+      &-link
+        &:hover
+          text: $primary
+
+        &--active
+          text: $primary
+
+          &:after
+            content: ''
+            display: block
+            height: 4px
+            background: $primary
+            transform: translateY(20px)
+
+    ^&__btn
+      position: @sm-down absolute
+
+  &--open
+    background: linear-gradient(247.35deg, #0DD0FB -39.21%, #036FF5 54.57%) @sm linear-gradient(309.51deg, #0DD0FB 1.14%, #036FF5 84.17%)
+    padding-bottom: 85px @sm 85px
+    border-radius: 0 @sm 0 0 5px 5px
+    bottom: @sm-down 0
+    max-height: @sm-down unset
+
+    &:before, &:after
+      visibility: visible
+      transition: .5s ease
+
+    &:before
+      transform: translateY(10px)
+      width: calc(100% - 40px)
+
+    &:after
+      transform: translateY(20px)
+      width: calc(100% - 80px)
+
+    ^&__btn
+      visibility: @sm-down visible
+      opacity: @sm-down 1
+      position: @sm-down static
+
+    ^&__nav
+      visibility: visible
+      margin: @sm-down * 15px
+      position: @sm-down relative
+
+      &-link
+        text: 400 center 20px @sm 500 @md 24px
+        opacity: 1
+        transform: translateY(0)
+        transition: transform .4s ease, opacity .3s ease
+        padding: @sm-down 20px
+        border-bottom: @sm-down 1px solid rgba(255, 255, 255, .15)
+
+        &:nth-child(2)
+          transition-delay: .05s
+        &:nth-child(3)
+          transition-delay: .08s
+        &:nth-child(4)
+          transition-delay: .11s
+        &:nth-child(5)
+          transition-delay: .13s
+        &:nth-child(6)
+          transition-delay: .15s
+
+        &:hover
+          text: #fff
+
+        &:hover:not(.header__nav-link--active)
+          background: @sm-down rgba(255, 255, 255, .07)
+
+        &--active
+          text: #fff
+          background: @sm-down rgba(255, 255, 255, .1)
+
+          &:after
+            content: ''
+            display: none @sm block
+            height: 4px
+            background: #fff
+            transform: translateY(20px)
+
+  &__container
+    box: center space-between
+    flex-wrap: wrap @sm nowrap
+    max-width: @lg-down 100%
+
+  &__logo
+    size: 118px 45px @sm 139px 53px @md 200px 75px
+    background: resolve('logo.png') no-repeat center / contain
+    transition: .2s ease
+    will-change: width, height
+
+  &__nav
+    box: vertical @sm horizontal center
+    visibility: hidden @xl visible
+    position: static @sm absolute auto 0 10px 0 @xl static
+    order: @sm-down 3
+    margin-top: 30px @sm 0
+    width: 100% @sm auto
+
+    &-link
+      text: #fff 16px
+      text-decoration: none
+      display: block
+      padding: 10px
+      opacity: 0 @xl 1
+      transform: translateY(-15px) @xl none
+
+      &:hover
+        text: $primary
+
+      & + &
+        margin-left: 0 @sm 14px @md 18px
+
+  &__btn
+    margin-left: auto @xl 0
+    margin-right: @sm-down auto
+    order: @sm-down 7
+    margin-top: @sm-down 30px
+    white-space: nowrap
+    opacity: @sm-down 0
+    visibility: @sm-down hidden
+
+  &__mobile-menu
+    display: block @xl none
+    background: transparent
+    size: 38px 23px
+    border: 0
+    outline: 0
+    cursor: pointer
+    margin-left: 50px @lg 100px

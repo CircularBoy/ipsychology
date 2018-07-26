@@ -1,0 +1,93 @@
+.form
+  
+  &--success
+    ^&__success
+      visibility: visible
+
+      &-icon, &-title, &-text
+        transform: translateY(0)
+
+  &__success
+    position: absolute 0 0 0 0
+    box: vertical center middle
+    background: #fff
+    transition: opacity .2s ease !important
+    padding: 25px @lg 25px 50px
+    border-radius: 5px
+    visibility: hidden
+    width: 100% !important
+
+    &--horizontal
+      box: vertical @lg horizontal
+
+      ^&-icon
+        margin-right: 0 @xl 10px
+        margin-bottom: -20px
+
+      ^&-text
+        display: block @xl none
+
+    &--hide-text
+      ^&-text
+        display: none
+
+    &-icon
+      background: svg-load('icons/ok.svg') no-repeat
+      size: size('icons/ok.svg')
+      margin-bottom: -20px
+      transform: translateY(-10px)
+      transition: .2s ease
+
+    &-title
+      @extend .hero__recall-title
+      transform: translateY(-10px)
+      transition: .2s ease .03s
+
+    &-text
+      @extend .hero__recall-text
+      transform: translateY(-10px)
+      transition: .2s ease .06s
+
+  > *:not(.btn)
+    opacity: 1
+    transition: filter 3s ease
+
+  &--loading
+    position: relative
+
+    &:before
+      content: ''
+      position: absolute 0 0 0 0
+      z-index: 9
+
+    > *
+      opacity: .1
+  
+.input
+
+  &__elem
+    border: 1px solid #D3D9E4
+    border-color: #D3D9E4
+    border-radius: 30px
+    padding: 18px 23px
+    height: 54px
+    outline: 0
+    text: $black 14px
+    font-family: $ff
+    width: 100%
+    transition: .3s ease
+
+    &::placeholder
+      text: #7C90B9
+
+    &:focus
+      border-color: #036FF5
+      box-shadow: inset 0px 3px 0px #D9D9D9
+
+  &--error
+    ^&__elem
+      border-color: #FF0F00
+      text: #FF0F00
+
+      &::placeholder
+        text: #FF0F00

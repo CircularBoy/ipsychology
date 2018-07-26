@@ -1,0 +1,138 @@
+.why
+  position: relative
+  background: radial-gradient(466.47px at 83.19% 13.86%, #0DD0FB 0%, #036FF5 100%) @md url('../img/why/shape-lg.svg') no-repeat left top / contain @xl url('../img/why/shape.svg') no-repeat left top / contain
+  padding-bottom: 40px  @md 400px @lg 400px
+  overflow: hidden
+
+  &__dots
+    display: @md-down none
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 0
+    transform: translate(-19%, -43%)
+
+  &__inner
+    position: relative
+    box: middle 
+    flex-wrap: wrap @lg nowrap
+    margin: 0 @md 0 -40px 0 -20px @lg 0
+
+  &__title
+    text: #fff
+    margin-bottom: 23px @md 40px @xl 58px
+    text-align: center @lg left
+    width: 100% @lg 25%
+    position: relative
+    z-index: 1
+
+  &__text-col
+    position: relative
+    margin-top: 0 @lg 10px
+    width: 100% @md 33.33333% @lg initital
+    min-width: @lg-down 33.33333%
+    padding-right: @lg-down 30px
+    box-sizing: @lg-down border-box
+    margin-bottom: @md-down 25px
+
+  &__desc-wrap
+    box: horizontal middle @md vertical stretch 
+    position: relative
+    z-index: 1
+
+  &__five
+    margin-bottom: 0 @md 17px @lg 19px
+    margin-left: 0 @md auto @lg -40px
+    margin-right: 15px @md auto @lg initial
+    width: 75px @md 125px @lg initial
+  
+  &__desc
+    text: #fff 16px 17px 700  @md 18px 22px @lg 24px 30px
+    text-shadow: 0px 10px 24px rgba(0, 38, 86, 0.2)
+    text-align: left @md center @lg left
+
+  &__double-col, &__triple-col
+    position: relative
+    z-index: 1
+    box: horizontal stretch center @lg vertical middle center
+    width: 65%
+    margin-top: 0 @lg -200px
+    display: @md-down none
+
+  &__double-col
+    padding-right: 0 @lg 30px
+    margin-left: 0 @lg 4vw
+    box-sizing: border-box
+    width: 66.33333% @lg 65%
+    min-width: 66.33333% @lg initial
+
+    ^&__item
+      width: 44% @lg 50% @lg initial
+      margin-right: @lg-down 30px
+
+    @each $i in 1, 2
+      & > :nth-child($(i))
+        background-image: url('../img/why/doubl-$(i).svg')
+
+  &__triple-col
+    width: @lg-down 100%
+    min-width: @lg-down 100%
+    margin-top: 30px
+
+    ^&__item
+      width: @lg-down 33.33333%
+      margin-right: @lg-down 30px
+
+    @each $i in 1, 2, 3
+      & > :nth-child($(i))
+        background-image: url('../img/why/triple-$(i).svg')
+
+  &__item
+    background-color: #fff
+    box-sizing: border-box
+    padding:  24px 20px @lg 40px 30px
+    margin-bottom: 0 @lg 30px
+    border-radius: 5px
+    box-shadow: 0px 10px 24px rgba(11, 118, 251, 0.12)
+    background-repeat: no-repeat
+    background-position: bottom right
+
+    &:last-child 
+      margin: 0
+
+  &__item-title
+    text: 18px 21px 700
+    margin-bottom: 10px @md 16px @lg 21px
+    width: 85% @xl 75%
+
+  &__item-desc
+    text: 14px 16px @md 14px 17px
+    width: 85% @lg 75%
+  
+  &__slider
+    display: block @md none
+
+    .glide__track
+      margin-bottom: 20px
+      border-radius: 5px
+
+    .glide__slide
+      height: auto
+
+    ^&__item
+      height: 100%
+
+      &:nth-child(1)
+        background-image: url('../img/why/doubl-1.svg')
+
+      &:nth-child(2)
+        background-image: url('../img/why/doubl-2.svg')
+
+      &:nth-child(3)
+        background-image: url('../img/why/triple-1.svg')
+
+      &:nth-child(4)
+        background-image: url('../img/why/triple-2.svg')
+
+      &:nth-child(5)
+        background-image: url('../img/why/triple-3.svg')

@@ -1,0 +1,115 @@
+.footer
+  background: #091128
+  position: relative
+  z-index: 2
+
+  &__container
+    padding: @sm-down * 0
+    max-width: @md-down 100%
+
+  &__recall
+    @extend .hero__recall
+    max-width: 100% @sm 90% @md 90% @lg 90% @xl 100%
+    padding: @xl 35px 39px 47px
+    border-radius: @sm-down 0
+    margin-bottom: -140px @sm -140px @md -190px @lg -140px @xl -140px
+    position: relative
+    top: -140px @sm -140px @md -190px @lg -140px @xl -140px
+
+    &:before, &:after
+      display: none @sm block
+
+    &:before
+      opacity: .2
+
+    &:after
+      opacity: .1
+
+    &-title
+      @extend .hero__recall-title
+      text: 24px @md 30px @lg 36px
+
+    &-text
+      @extend .hero__recall-text
+      text: 14px @sm 18px
+      padding: * 20px @lg * 10% @xl * 22%
+
+    &-form
+      box: middle @xl-down wrap
+      max-width: 370px @lg 80% @xl 100%
+      margin: * auto
+
+    &-input
+      width: 100% @lg 280px
+
+      & + &
+        margin-top: 10px @sm 16px @lg 0
+        margin-left: 0 @lg 16px
+
+    &-btn
+      padding: * 23px
+      width: 100% @lg auto
+      margin-top: 10px @sm 16px @xl 0
+      margin-left: 0 @xl 16px
+
+  &__wrap
+    box: vertical space-between center @sm horizontal
+    padding: 40px 0 35px @sm 75px 0 40px @lg 75px 0 40px
+    margin: 0 15px @sm 0 10px @md 0 20px @lg 0
+    border-bottom: 1px rgba(255, 255, 255, .1) solid
+
+  &__logo
+    @extend .header__logo
+    size: 150px 56px
+
+  &__nav
+    @extend .header__nav
+
+    &-link
+      @extend .header__nav-link
+      text: 14px
+
+  &__socials
+    order: 1 @sm 0
+
+    &-link
+
+      & + &
+        margin-left: 16px @sm 13px @md 16px
+
+  &__contacts
+    box: vertical center @sm right
+    margin: 20px 0 30px @sm 0
+
+    &-link
+      text: #fff 18px @sm 15px @md 16px
+      text-decoration: none
+
+      & + &
+        margin-top: 8px
+
+  &__copy
+    box: space-between wrap
+    padding: 30px * 30px @xl 40px * 28px
+    margin: 0 15px @sm 0 10px @md 0 20px @lg 0
+
+    &-text
+      text: rgba(255, 255, 255, .4) 10px 15px @md 11px 17px
+      width: 100% @xl 88%
+
+    &-wrap
+      box: horizontal-reverse space-between @xl vertical right
+      width: 100% @xl 12%
+      margin-top: 20px @xl 0
+
+    &-studio
+      background: svg-load('icons/studio.svg', fill: #fff)
+      size: size('icons/studio.svg')
+      display: block
+      transition: $transition
+
+      &:hover
+        background: svg-load('icons/studio.svg', fill: $blue)
+
+    &-right
+      text: rgba(255, 255, 255, .8) 10px 14px

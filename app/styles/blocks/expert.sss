@@ -1,0 +1,68 @@
+
+.expert
+  background-image: linear-gradient(66.91deg, #050E26 0%, #0C2466 56.32%) @sm url('../img/expert/expert-bg-md.svg'), linear-gradient(66.91deg, #050E26 0%, #0C2466 56.32%) @xl url('../img/expert/expert-bg.svg'), linear-gradient(66.91deg, #050E26 0%, #0C2466 56.32%)
+  background-position: top right
+  background-size: contain
+  background-repeat: no-repeat
+
+  
+  &__inner
+    position: relative
+    margin-bottom: -20px @md -60px @lg -42px
+  
+  &__button
+    position: initial @xl absolute
+    top: 50%
+    right: 6%
+    transform: none @xl translateY(-50%)
+    text-align: center
+    margin-top: @xl-down 58px
+    height: @sm-down 240px
+    width: @sm-down 100% 
+    background: @sm-down url('../img/expert/expert-sm.png') no-repeat center / contain
+
+    & .btn 
+      transform: @sm-down scale(.56)
+      margin-top: @sm-down 65px
+
+  &__button-desc
+    margin-top: 15px @sm 34px @md 36px @lg 44px
+    text: #fff 14px 16px @md 18px 24px
+
+  &__text
+    width: 100% @xl 45%
+
+  &__title
+    text-align: center @xl left
+    text: #fff
+
+
+  &__sub-title
+    margin-top: 15px @md 13px @lg 20px
+    text-align: center @xl left
+    text: @md-down 16px 18px
+    text: #fff
+
+  &__google
+    margin-top: 30px @md 41px @lg 73px
+    box: vertical center @xl left 
+
+  &__google-item
+    width: @sm-down 95%
+    margin: @sm-down 0 auto
+
+    &:nth-child(1)
+      transform: none @sm translate(20px, 0) @xl none
+
+    &:nth-child(2)
+      transform: translate(10px, -10px) @sm translate(0, -30px) @xl translate(40px, -20px) 
+
+    &:nth-child(3)  
+      transform: translate(0, -20px) @sm translate(40px, -60px) @xl translate(80px, -40px)
+
+  &__google-img
+    width: @sm-down 100%
+    box-shadow: 0px 0px 20px rgba(8, 23, 65, 0.5)
+    border-radius: 5px
+    display: inline-block
+    

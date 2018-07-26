@@ -1,0 +1,51 @@
+.services
+  background: url('../img/services/blue-bg.svg') no-repeat 
+  background-position: left -200px top -70px @lg left 0 top -70px
+  padding: 196px 0 50px @md 210px 0 80px @lg 107px 0
+
+  &__container
+    padding: @sm-down * 0
+
+  &__title
+    text-align: center
+
+  &__inner
+    box: space-between nowrap @md wrap
+    display: @md-down block
+    width: 100% @md initial
+    margin: 15px 0 10px @md 31px -15px 0 @lg 61px -35px 0
+    overflow: @lg visible
+
+    & .glide__slides
+      box: nowrap @md wrap
+
+    & .glide__slide
+      height: 100% @md initial
+
+  &__item
+    width: initial @md 50% @lg 33.33333% 
+    padding: 15px
+    box-sizing: border-box
+    cursor: @md-down pointer
+ 
+    @each $i in (1,2,3,4,5,6)
+      &:nth-of-type($i) ^&__img
+        background: svg-load('services/icon-$i.svg') no-repeat center / contain
+        size: size('services/icon-$i.svg')
+
+  &__service
+    box: vertical center middle
+    background: #FFFFFF
+    box-shadow: 0px 5px 24px rgba(11, 118, 251, 0.12) @md 0px 10px 24px rgba(11, 118, 251, 0.12)
+    border-radius: 5px
+    padding: 50px 20px 41px
+  
+  &__img
+    margin-bottom: 25px
+
+  &__service-title
+    text: * 500
+
+  &__service-sub-title
+    text: 16px
+    text-align: center

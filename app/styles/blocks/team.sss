@@ -1,0 +1,55 @@
+.team
+  padding: 40px 0 20px @xs 70px 0 30px @md 80px 0 55px @lg 90px 0 50px @xl 100px 0 70px
+
+  &__container
+    padding: @md-down * 0
+    max-width: @md-down 100%
+
+  &__title
+    margin-bottom: 25px @xs 45px @md 55px @lg 75px
+    margin: * 20px @md * 0
+    box: @xs space-between center
+    text: center
+
+    .btn
+      display: none @xs flex @md none
+
+  &__slider
+
+    &-prev
+      margin-left: auto
+
+    &-next
+      margin-left: 20px
+
+  &__slides
+    box: space-between
+
+  &__slide
+    width: calc(25% - 9px) @lg calc(25% - 16px) @xl calc(25% - 20px)
+
+  &__bullets
+    margin-top: 30px @xs 50px 
+
+    .glide__bullet
+      &:last-child
+        display: block @xs none
+
+  &__item
+    text: center
+
+    &-img
+      width: 100%
+      padding-top: 114%
+      border-radius: 5px
+
+      @for $i from 1 to 4
+        &--$i
+          background: resolve('team/$i.jpg') no-repeat center / cover
+
+    &-title
+      text: $primary 700 18px
+      margin: 19px 0 10px @lg 25px 0 10px
+
+    &-text
+      text: 14px 21px

@@ -1,0 +1,82 @@
+.results
+  background: url('../img/results/sm-bg.svg') no-repeat top left / cover @md url('../img/results/md-bg.svg') no-repeat top left / cover @lg 
+              url('../img/results/left-shape.svg') no-repeat top left / cover,
+              url('../img/results/right-shape.svg') no-repeat bottom right
+  padding-bottom: @sm-down 80px
+  background-position-x: @lg 50%
+
+  .glide__slide
+    height: auto
+
+  &__slider.box--echo
+    
+    &:after
+      background-color: #C1C1C1
+      opacity: .2
+      z-index: -1
+      top: -30px
+      border-radius: 5px
+      bottom: 0
+      height: auto
+      display: @sm-down none
+    
+    &:before
+      display: @sm-down none
+
+  &__title
+    text-align: center
+    text: @lg-down #fff
+
+  &__sub-title
+    text-align: center
+    margin-top: 14px @md 21px
+    text: @md-down 16px 18px
+    text: @lg-down #fff 
+
+  &__inner
+    background: #fff
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.05), 0px 15px 30px rgba(0, 0, 0, 0.05)
+    border-radius: 5px
+
+  &__item
+    box: vertical-reverse @xl horizontal space-between
+    cursor: pointer
+    height: 100%
+
+  &__legend
+    position: relative
+    width: 100% @xl 42%
+    padding: 25px 16px @md 35px 30px
+    background-color: #F3F8FF
+    padding-top: @md-down 12px
+    padding-bottom: 25px @sm 60px @md 35px
+
+  
+
+  &__person
+    text: 18px * 700 @md 24px
+    margin-bottom: 8px @md 12px @lg 20px
+
+  &__legend-desc
+    text: 14px 16px @md 16px 20px
+    margin-bottom: 12px @md 18px
+  
+  &__link
+    display: inline-block
+    text-decoration: none
+    text: $blue 14px
+    padding-bottom: 5px
+    border-bottom: 2px solid $blue
+    transition: $transition
+
+    &:hover
+      border-bottom: transparent
+
+  &__graph
+    width: 100% @xl 58%
+    padding: 15px 10px
+
+  &__graph-img
+    width: 100% @lg 652px @xl 100%
+    margin: 0 auto
+    display: block

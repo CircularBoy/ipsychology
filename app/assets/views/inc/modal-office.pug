@@ -1,0 +1,56 @@
+.modal.modal--recall(data-id='office1')
+  .modal__close(onclick='closeModal()')
+
+  .modal__content
+    .modal__title Связаться с офисом в Тольятти
+    .modal__text Оставьте свои данные и специалисты компании STC свяжутся с Вами
+
+    form.form.modal__form.form(action='#!' onsubmit='formSubmitFn(event, this)')
+      .input
+        input.input__elem(type='text' name='name' placeholder='Имя' data-error='Введите имя')
+      
+      .input
+        input.input__elem(type='text' name='phone' placeholder='Телефон' data-error='Введите телефон')
+
+      .input
+        button.modal__btn.btn Отправить
+
+      +form-success
+
+.modal.modal--recall(data-id='office2')
+  .modal__close(onclick='closeModal()')
+
+  .modal__content
+    .modal__title Связаться с офисом в Самаре
+    .modal__text Оставьте свои данные и специалисты компании STC свяжутся с Вами
+
+    form.form.modal__form.form(action='#!' onsubmit='formSubmitFn(event, this)')
+      .input
+        input.input__elem(type='text' name='name' placeholder='Имя' data-error='Введите имя')
+      
+      .input
+        input.input__elem(type='text' name='phone' placeholder='Телефон' data-error='Введите телефон')
+
+      .input
+        button.modal__btn.btn Отправить
+
+      +form-success
+
+.modal.modal--recall(data-id='office3')
+  .modal__close(onclick='closeModal()')
+
+  .modal__content
+    .modal__title Связаться с офисом в Уфе
+    .modal__text Оставьте свои данные и специалисты компании STC свяжутся с Вами
+
+    form.form.modal__form.form(action='#!' onsubmit='formSubmitFn(event, this)')
+      .input
+        input.input__elem(type='text' name='name' placeholder='Имя' data-error='Введите имя')
+      
+      .input
+        input.input__elem(type='text' name='phone' placeholder='Телефон' data-error='Введите телефон')
+
+      .input
+        button.modal__btn.btn Отправить
+
+      +form-success
