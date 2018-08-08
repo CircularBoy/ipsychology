@@ -1,115 +1,116 @@
 .footer
-  background: #091128
+  background: #23272c
+  text: rgba(255, 255, 255, .7) * * 400
+  padding: 30px 0 @sm 45px 0 @xl 80px 0
   position: relative
   z-index: 2
 
-  &__container
-    padding: @sm-down * 0
-    max-width: @md-down 100%
-
-  &__recall
-    @extend .hero__recall
-    max-width: 100% @sm 90% @md 90% @lg 90% @xl 100%
-    padding: @xl 35px 39px 47px
-    border-radius: @sm-down 0
-    margin-bottom: -140px @sm -140px @md -190px @lg -140px @xl -140px
-    position: relative
-    top: -140px @sm -140px @md -190px @lg -140px @xl -140px
-
-    &:before, &:after
-      display: none @sm block
-
-    &:before
-      opacity: .2
-
-    &:after
-      opacity: .1
-
-    &-title
-      @extend .hero__recall-title
-      text: 24px @md 30px @lg 36px
-
-    &-text
-      @extend .hero__recall-text
-      text: 14px @sm 18px
-      padding: * 20px @lg * 10% @xl * 22%
-
-    &-form
-      box: middle @xl-down wrap
-      max-width: 370px @lg 80% @xl 100%
-      margin: * auto
-
-    &-input
-      width: 100% @lg 280px
-
-      & + &
-        margin-top: 10px @sm 16px @lg 0
-        margin-left: 0 @lg 16px
-
-    &-btn
-      padding: * 23px
-      width: 100% @lg auto
-      margin-top: 10px @sm 16px @xl 0
-      margin-left: 0 @xl 16px
-
   &__wrap
-    box: vertical space-between center @sm horizontal
-    padding: 40px 0 35px @sm 75px 0 40px @lg 75px 0 40px
-    margin: 0 15px @sm 0 10px @md 0 20px @lg 0
-    border-bottom: 1px rgba(255, 255, 255, .1) solid
-
-  &__logo
-    @extend .header__logo
-    size: 150px 56px
+    box: vertical center wrap @sm top horizontal space-between wrap
 
   &__nav
-    @extend .header__nav
+    display: @md-down none
+    width: 100% @xl 50%
+    min-width: 100% @xl 50%
+    box-sizing: border-box
+    padding-right: 30px
+    box: top @xl space-between
+    align-self: flex-start
+    margin-bottom: 12px @xl 0
 
     &-link
-      @extend .header__nav-link
-      text: 14px
-
-  &__socials
-    order: 1 @sm 0
-
-    &-link
-
-      & + &
-        margin-left: 16px @sm 13px @md 16px
-
-  &__contacts
-    box: vertical center @sm right
-    margin: 20px 0 30px @sm 0
-
-    &-link
-      text: #fff 18px @sm 15px @md 16px
+      text: rgba(255, 255, 255, .7) 12px 24px 700
+      transition: $transition
+      text-transform: uppercase
       text-decoration: none
 
       & + &
-        margin-top: 8px
+        margin-left: 30px @xl 0
+
+      &:hover, &--active
+        text: $secondary
+
+  &__contacts
+    box-sizing: border-box
+    padding: 0 @xl 0 30px
+    width: 50% @xl 25%
+    min-width: 100% @xs 68% @sm 50% @xl 25%
+    box: vertical
+
+    &-item
+      position: relative
+      text: 14px @xl 16px
+      padding-left: 30px
+      
+      & + &
+        margin-top: 6px
+      
+      &:before
+        position: static @sm absolute
+        margin-right: 6px @sm 0
+        left: 0
+        top: 0
+        content: ''
+        display: inline-block
+
+      &:nth-child(1):before
+        background: svg-load('phone.svg', fill: $secondary) no-repeat center / contain
+        size: 12px 21px
+        margin-bottom: -4px
+        left: 3px @xl 0
+
+      &:nth-child(2):before
+        background: svg-load('email.svg', fill: $secondary) no-repeat center / contain
+        size: 20px 14px
+        top: 5px
+
+    &-title
+      display: inline-block @xl block
+      margin-right: 10px @xl 0
+      text-transform: uppercase
+
+    &-link
+      text: rgba(255, 255, 255, .7)    
+
+  &__doc
+    box-sizing: border-box
+    padding-left: 0 @xl 30px
+    width: initial @xl 25%
+    min-width: 70% @sm initial @xl 25%
+    box: vertical space-between
+    text: 12px @xl 14px
+    margin: 15px 0  @sm 0
+
+    &-title
+      text-align: center @sm left
+      text-transform: uppercase
+      margin-bottom: 10px @xl 0      
+
+    &-link
+      text-align: center @sm left
+      display: block @xl inline-block
+      text: rgba(255, 255, 255, .7)
+  
+  &__socials
+    margin-top: 0 @sm 10px @md -20px @xl -67px
+    margin-bottom: 18px
+
+  &__soc
+    justify-content: @sm-down center
+
+  &__logo
+    margin-bottom: 12px @sm 20px
+    margin: @sm-down * auto
+    display: block
+    size: 48px 22px
+    background: svg-load('logo.svg', fill: $secondary) no-repeat center / contain
+    will-change: background
+    transition: $transition
+
+    &:hover
+      background: svg-load('logo.svg', fill: #fff) no-repeat center / contain
 
   &__copy
-    box: space-between wrap
-    padding: 30px * 30px @xl 40px * 28px
-    margin: 0 15px @sm 0 10px @md 0 20px @lg 0
+    text-align: center @sm left
+    text: rgba(255, 255, 255, .7) 12px * 300
 
-    &-text
-      text: rgba(255, 255, 255, .4) 10px 15px @md 11px 17px
-      width: 100% @xl 88%
-
-    &-wrap
-      box: horizontal-reverse space-between @xl vertical right
-      width: 100% @xl 12%
-      margin-top: 20px @xl 0
-
-    &-studio
-      background: svg-load('icons/studio.svg', fill: #fff)
-      size: size('icons/studio.svg')
-      display: block
-      transition: $transition
-
-      &:hover
-        background: svg-load('icons/studio.svg', fill: $blue)
-
-    &-right
-      text: rgba(255, 255, 255, .8) 10px 14px

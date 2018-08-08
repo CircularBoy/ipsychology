@@ -1,0 +1,38 @@
+section#price.price
+  +next-block('bonus')
+  .price__photo
+  .container
+    .price__text-wrap
+      .price__title.h2 Стоимость
+
+      .price__price Цена консультации: 
+      
+        p.price-wrap
+          <span class="price__colored"> 46</span> /сессия
+
+      .price__form.form
+        .form__title Записаться на консультацию
+
+        form.form__form
+          .input-field.input-field--person.input-field--error
+            input.input(type='text' placeholder='Имя')
+
+          .input-field.input-field--email
+            input.input(type='text' placeholder='E-mail')
+
+          .input-field.input-field--phone
+            input.input(type='text' placeholder='Телефон')
+
+          .input-field.input-field--skype
+            input.input(type='text' placeholder='Skype')
+
+          .input-field
+            .btn.btn--all-width.btn--big Записаться
+          
+          .form__politic Политика конфиденциальности
+
+      
+
+
+
+

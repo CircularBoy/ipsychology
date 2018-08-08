@@ -1,45 +1,41 @@
 footer.footer
   .footer__container.container
-    .footer__recall.box.box--echo(data-aos)
-      .footer__recall-title Остались вопросы?
-      .footer__recall-text Оставьте свои данные и наши финансовые советники ответят на любые вопросы, в удобное для вас время
-
-      form.footer__recall-form.form(action='#')
-        .input.footer__recall-input
-          input.input__elem(type='text' name='name' placeholder='Имя' data-error='Введите имя')
-
-        .input.footer__recall-input
-          input.input__elem(type='text' name='phone' placeholder='Телефон' data-error='Введите телефон')
-
-        button.footer__recall-btn.btn Получить консультацию
-
-        +form-success()(class='form__success--horizontal')
 
     .footer__wrap
-      .footer__logo
 
       .footer__nav
-        a.footer__nav-link.scroll-to(href='#services') Услуги
-        a.footer__nav-link.scroll-to(href='#results') Кейсы
-        a.footer__nav-link.scroll-to(href='#expert') О нас
-        a.footer__nav-link.scroll-to(href='#team') Команда
-        a.footer__nav-link.scroll-to(href='#offices') Контакты
+        a.footer__nav-link.footer__nav-link--active.scroll-to(href='#main') Главная
+        a.footer__nav-link.scroll-to(href='#therapia') Онлайн-терапия
+        a.footer__nav-link.scroll-to(href='#about') О компании
+        a.footer__nav-link.scroll-to(href='#experts') Специалисты
+        a.footer__nav-link.scroll-to(href='#price') Стоимость
 
-      .footer__socials
-        a.footer__socials-link.btn.btn--circle.btn--icon-vk(href='#!')
-        a.footer__socials-link.btn.btn--circle.btn--icon-in(href='#!')
-        a.footer__socials-link.btn.btn--circle.btn--icon-fb(href='#!')
+
 
       .footer__contacts
-        a.footer__contacts-link(href='mailto:support@paytomat.com') support@paytomat.com
-        a.footer__contacts-link(href='tel:88005506216') + 8 800 55 06 216
+        .footer__contacts-item
+          p.footer__contacts-title Телефон: 
+          a.footer__contacts-link.link(href='tel:380978401603') +380978401603
+
+        .footer__contacts-item
+          p.footer__contacts-title e-mail: 
+          a.footer__contacts-link.link(href='mailto:ipsychologist.contact@gmail.com') ipsychologist.contact@gmail.com
+
+      .footer__doc
+        p.footer__doc-title Пользовательское соглашение
+        
+        .footer__doc-wrap
+          a.footer__doc-link.link(href="#!") Публичная офферта 
+          a.footer__doc-link.link(href="#!") Политика конфидециальности
+          a.footer__doc-link.link(href="#!") Для терапевтов
+
+
+    .footer__socials
+      +soc(class="footer__soc soc soc--horizontal soc--left soc--invert-color")
 
     .footer__copy
-      .footer__copy-text Внимание! Компания STC является консультационным центром. STC не принимает средства клиентов на свои счета, не берет средства в управление и не гарантирует получение дохода прямо или косвенно. Деятельность организации ограничивается помощью в открытии торговых счетов у различных брокерских компаний, а также в оказании информационной и аналитической поддержки.Торговые операции клиент проводит самостоятельно на своем брокерском счете. STC выступает исключительно в качестве финансового консультанта. STC cобирает, анализирует и систематизирует информацию о поведении цен на различные финансовые активы, по поручению своих клиентов. Торговые операции клиент проводит самостоятельно на своем брокерском счете. STC выступает исключительно в качестве финансового консультанта. STC cобирает, анализирует и систематизирует информацию о поведении цен на различные финансовые активы, по поручению своих клиентов. Проект не является образовательной деятельностью не сопровождается выдачей документов об образование и квалификации
-
       .footer__copy-wrap
-        a.footer__copy-studio(href='http://sho.digital/')
+        a.footer__logo(href='#!')
 
         .footer__copy-right
-          | © STC 2018.<br>
-          | All rights reserved
+          | &copy; 2015-2018 "iPsychologist"

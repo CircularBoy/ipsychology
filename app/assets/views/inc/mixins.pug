@@ -1,5 +1,9 @@
-mixin form-success()
-  .form__success(class!=attributes.class)
-    .form__success-icon
-    .form__success-title Спасибо, ваша завка отправлена!
-    .form__success-text Специалист компании STC свяжется с Вами в ближайшее время
+mixin soc()
+  div(class!=attributes.class)
+    a.soc__item.soc__item--teleg(href='#!')
+    a.soc__item.soc__item--vk(href='#!')
+    a.soc__item.soc__item--inst(href='#!')
+    a.soc__item.soc__item--face(href='#!')
+
+mixin next-block(link)
+  a.next-block.scroll-to(href='#' + link)

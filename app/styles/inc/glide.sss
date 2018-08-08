@@ -63,26 +63,61 @@
     display: @sm-down none
 
   &__count-current
-    text: $blue 24px 
+    // text: $blue 24px 
 
   &__arrows
     display: @sm-down none
     margin-top: 3px
 
-  &__arrows-item
-    display: inline-block
-    background: svg-load('results/arrow-slider.svg', fill: #dbdbdb) no-repeat center / contain
-    size: size('results/arrow-slider.svg')
-    border: 0
-    outline: 0
-    padding: 0
+  &__arrow
+    display: block @lg none
+    position: absolute
+    top: 40% @md 35%
+    border: 0 @md 1px solid #000
+    // background: svg-load('circle-slider.svg') no-repeat center
     cursor: pointer
     transition: $transition
+    size: 58px
+    border-radius: 50%
+    z-index: 998
+    box-shadow: none @md 0px 3px 9.7px 0.3px rgba(0, 0, 0, 0.23)
+
+    &:before
+      content: ''
+      position: absolute 0px 0px 0px 0px
+      display: block
+      z-index: 9999
+      box-shadow: inset 0px 0 0 1px #fff
+      border-radius: 50%
+      opacity: 0
+
+    &:after
+      content: ''
+      position: absolute 0px 0px 0px 0px
+      display: block
+      z-index: 9999
+      transform: rotate(-90deg)
+      background: svg-load('arrow-slider.svg') no-repeat top 8px center / 60%
+      border-radius: 50%
+      transition: $transition
+
+    &--prev
+      left: 10px @md 30px
 
     &--next
-      transform: scale(-1)
-      margin-left: 6px
+      right: 10px @md 30px
+
+      &:after
+        transform: rotate(90deg)
 
     &:hover
-      background: svg-load('results/arrow-slider.svg', fill: $blue) no-repeat center / contain
+      border-color: transparent
+
+    &:active
+      border-color: transparent
+      box-shadow: 0px 3px 4.95px 0.05px rgba(0, 0, 0, 0.23)
+
+      &:after
+        opacity: .5
+
   

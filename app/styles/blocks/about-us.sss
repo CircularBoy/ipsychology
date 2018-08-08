@@ -1,0 +1,168 @@
+.about-us
+  padding: 0px 0 60px @xl 50px 0 80px
+
+  &__wrap
+    box: vertical @xl horizontal space-between
+
+  &__side
+    width: 100% @xl 50%
+    max-width: 100% @xl 50%
+    box-sizing: border-box
+    padding: 0 10px @xl 0 30px
+    box: vertical space-between
+
+    &:first-child
+      padding: 0
+      margin-bottom: 60px
+
+    &:last-child
+      padding-right: 10px @xl 0
+
+  &__title
+    text-align: center
+    width: 100% @xl 70%
+    margin: 0 auto
+    margin-bottom: 50px
+
+    &--hide-md
+      display: none @md block
+  
+  &__slider
+    background-color: $white-dark
+    display: block @md none
+    box-sizing: border-box
+    padding: 40px 0 40px
+
+  &__tablet
+    display: none @md block
+    position: relative
+    width: 574px @xl initial
+    margin: 0 auto @xl 0
+    margin-top: 63px
+    margin-bottom: 67px
+
+    &-bottom, &-top, &-left, &-right
+      position: absolute
+      z-index: 22
+    
+    &-bottom
+      position: absolute
+      left: -33px 
+      bottom: -67px
+      right: -33px
+      background: resolve('about-us/tablet3.png')
+      size: size('about-us/tablet3.png')
+      overflow: hidden
+
+    &-left
+      position: absolute
+      left: -33px
+      bottom: 0
+      background: resolve('about-us/tablet4.png') no-repeat
+      size: size('about-us/tablet4.png') no-repeat
+      overflow: hidden
+
+    &-right
+      position: absolute
+      right: 56px
+      bottom: 0
+      background: resolve('about-us/tablet2.png') no-repeat
+      size: size('about-us/tablet2.png') no-repeat
+      overflow: hidden
+
+    &-top
+      position: absolute
+      left: -33px
+      top: -63px
+      background: resolve('about-us/tablet1.png') no-repeat
+      size: size('about-us/tablet1.png') no-repeat
+      overflow: hidden 
+
+  &__scroll
+    height: 646px
+
+  &__icon-scroll
+    position: absolute
+    z-index: 9999
+    right: 55%
+    left: initial
+    top: 250px
+  
+    &--hide
+      display: none
+      opacity: 0
+
+  &__inner
+    margin-right: 90px
+    background-color: $white-dark
+
+  .simplebar-track
+    background-color: $white-dark
+
+  .simplebar-scrollbar
+    // background-color: $primary
+
+  .simplebar-scrollbar:before
+    background-color: $primary-dark
+
+  &__item
+    margin: * 30px * 30px
+    padding: 14px 18px @md 20px 40px
+    background-color: #fff
+    box-shadow: none @md 0px 7px 7.68px 0.32px rgba(0, 0, 0, 0.23)
+
+    & + &
+      margin-top: 40px
+
+  &__date
+    text: $secondary-dark 12px 1.2
+    opacity: .6
+    margin-bottom: 4px
+
+  &__rate
+    background: resolve('about-us/rate.png')
+    size: size('about-us/rate.png')
+    margin-bottom: 6px
+
+  &__desc
+    text: $secondary-dark 14px 
+  
+  &__person
+    box: left center
+    margin-top: 10px
+  
+  &__avatar
+    size: 68px
+    min-width: 68px
+    border-radius: 50%
+    overflow: hidden
+    margin-right: 24px
+
+    &-img
+      width: 100%
+
+  &__person-wrap
+    box: vertical left middle
+
+  &__name
+    margin-bottom: 6px
+    text: 15px * 600
+
+  &__soc
+    text: #0a9bfd 14px
+
+
+  &__logoes
+    box: vertical center middle
+
+  &__logo
+    max-width: 100%
+
+    & + & 
+      margin-top: 50px @xl 90px
+
+    &:nth-of-type(3)
+      width: 178px @xl initial
+
+    &:nth-of-type(4)
+      width: 140px @xl initial

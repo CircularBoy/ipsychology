@@ -1,15 +1,13 @@
-// пробуем без сетки совсем, есть только container
 
-.block
-  padding: 46px 0 @md 60px 0 @lg 107px 0 //class for standart section
-
-.block-inner
-  margin-top: 30px @md 50px @lg 78px //class for standart top margin from title/subtitle
 
 .container
+  position: relative
   max-width: $container-sm-px
   margin: * auto
   padding: * 14px @md * 3vw @xl * 26px
+
+  &--min
+    padding: 0 @xl * 90px
 
 @media $md 
   .container

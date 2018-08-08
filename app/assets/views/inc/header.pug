@@ -1,15 +1,22 @@
-header.header
+header.header(data-gumshoe-header)
   .header__container.container
     a.header__logo(href='#!')
 
     .header__nav(data-gumshoe)
-      a.header__nav-link.scroll-to(href='#services') Услуги
-      a.header__nav-link.scroll-to(href='#results') Кейсы
-      a.header__nav-link.scroll-to(href='#expert') О нас
-      a.header__nav-link.scroll-to(href='#team') Команда
-      a.header__nav-link.scroll-to(href='#offices') Контакты
+      //- a.header__nav-link.header__nav-link--active.scroll-to(href='#main') Главная
+      a.header__nav-link.scroll-to(href='#main') Главная
+      a.header__nav-link.scroll-to(href='#therapy') Онлайн-терапия
+      a.header__nav-link.scroll-to(href='#experts') Специалисты
+      a.header__nav-link.scroll-to(href='#about') О компании
+      a.header__nav-link.scroll-to(href='#price') Стоимость
+      a.header__nav-link.scroll-to(href='#bonus') Бонус
+      +soc(class='header__nav-soc soc soc--horizontal')
 
-    button.header__btn.btn.btn--small.btn--white.btn--icon-dollar(data-show-id='recall') Начать зарабатывать
+    button.header__btn.btn.btn--small.btn--white.btn--icon-dollar(data-show-id='recall') заказать консультацию
+    button.header__btn.header__btn--xs.btn.btn--small.btn--white.btn--icon-dollar(data-show-id='recall') заказать
+
+    +soc(class='soc soc--fixed soc--vertical')
+    +soc(class='header__soc soc soc--horizontal')
 
     button.header__mobile-menu
       .menu

@@ -1,93 +1,81 @@
 .form
-  
-  &--success
-    ^&__success
-      visibility: visible
+  width: 100%
+  max-width: 370px
 
-      &-icon, &-title, &-text
-        transform: translateY(0)
+  &__title
+    margin-bottom: 20px
+    text: 16px * 600 @sm 18px
+    text-transform: uppercase
+    text-align: center
 
-  &__success
-    position: absolute 0 0 0 0
-    box: vertical center middle
-    background: #fff
-    transition: opacity .2s ease !important
-    padding: 25px @lg 25px 50px
-    border-radius: 5px
-    visibility: hidden
-    width: 100% !important
+  &__politic
+    margin-top: 10px
+    text: 12px
+    text-align: center
+    text-transform: uppercase
 
-    &--horizontal
-      box: vertical @lg horizontal
-
-      ^&-icon
-        margin-right: 0 @xl 10px
-        margin-bottom: -20px
-
-      ^&-text
-        display: block @xl none
-
-    &--hide-text
-      ^&-text
-        display: none
-
-    &-icon
-      background: svg-load('icons/ok.svg') no-repeat
-      size: size('icons/ok.svg')
-      margin-bottom: -20px
-      transform: translateY(-10px)
-      transition: .2s ease
-
-    &-title
-      @extend .hero__recall-title
-      transform: translateY(-10px)
-      transition: .2s ease .03s
-
-    &-text
-      @extend .hero__recall-text
-      transform: translateY(-10px)
-      transition: .2s ease .06s
-
-  > *:not(.btn)
-    opacity: 1
-    transition: filter 3s ease
-
-  &--loading
-    position: relative
-
-    &:before
+    &:after
       content: ''
-      position: absolute 0 0 0 0
-      z-index: 9
+      display: inline-block
+      margin-left: 6px
+      background: svg-load('lock.svg', fill: $secondary)
+      size: size('lock.svg')
 
-    > *
-      opacity: .1
+.input-field
+  box: center
+
+  & + &
+    margin-top: 26px
   
-.input
+  &:after
+    content: ''
+    margin-left: -50px
+    position: relative
+    z-index: 22
 
-  &__elem
-    border: 1px solid #D3D9E4
-    border-color: #D3D9E4
-    border-radius: 30px
-    padding: 18px 23px
-    height: 54px
-    outline: 0
-    text: $black 14px
-    font-family: $ff
-    width: 100%
-    transition: .3s ease
+  @each $icon in person, email, phone, skype
+    &--$(icon)
+      &:after
+        background: svg-load('$(icon).svg', fill: $secondary)
+        display: inline-block
+        size: size('$(icon).svg')
 
-    &::placeholder
-      text: #7C90B9
+  @each $icon in person, email, phone, skype
+    &--$(icon).input-field--error
+      &:after
+        background: svg-load('$(icon).svg', fill: $primary-dark)
+        display: inline-block
+        size: size('$(icon).svg')
 
-    &:focus
-      border-color: #036FF5
-      box-shadow: inset 0px 3px 0px #D9D9D9
+  &--bordered
+    .input
+      border-color: $secondary-dark
+
+      &:focus
+        border-color: rgb(52, 49, 38, .5)
 
   &--error
-    ^&__elem
-      border-color: #FF0F00
-      text: #FF0F00
+    .input
+      border-color: #ce111d
+      text: #b79569
 
-      &::placeholder
-        text: #FF0F00
+.input
+  position: relative
+  border: 1px solid
+  border-color: transparent
+  padding: 0 15px
+  height: 49px
+  line-height: 49px
+  outline: 0
+  text: $secondary-dark 18px
+  font-family: $ff
+  width: 100%
+  transition: $transition
+
+  &::placeholder
+    text: rgb(52, 49, 38, .59)
+
+  &:focus
+    border-color: $secondary-dark
+
+  

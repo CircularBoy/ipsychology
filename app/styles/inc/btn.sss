@@ -1,209 +1,30 @@
 .btn
-  padding: 15px 60px 16px
-  text: #fff center bold 16px 23px
-  text-decoration: none
-  font-family: $ff
+  background-color: $primary
+  display: inline-block
   border: 0
   outline: 0
+  padding: 20px 26px
+  text: #fff 12px 12px 700
   cursor: pointer
-  transition: box-shadow .1s ease, background .3s ease, color .3s ease, filter 3s ease
-  border-radius: 30px
-  background: linear-gradient(180deg, #147DFF 0%, #036FF5 100%)
-  box-shadow: 0 20px 30px rgba(3, 111, 245, 0.3)
-  display: inline-block
-  user-select: none
-  display: inline-flex
-  align-items: center
-  justify-content: center
-
-  &:before, &:after
-    transition: .3s ease
+  text-transform: uppercase
+  transition: $transition
 
   &:hover
-    background: linear-gradient(180deg, #3791FF 0%, #2184FF 100%)
-    box-shadow: 0 0 0 rgba(3, 111, 245, 0.3)
-
-  &:active
-    background: linear-gradient(180deg, #0C69DC 0%, #2184FF 100%)
-
-  &--secondary
-    background: linear-gradient(180deg, #00CF68 0%, #00A653 100%)
-    box-shadow: 0 20px 30px rgba(0, 166, 83, 0.3)
-
-    &:hover
-      background: linear-gradient(180deg, #01EE78 0%, #03D66C 100%)
-      box-shadow: 0 0 0 rgba(0, 166, 83, 0.3)
-
-    &:active
-      background: linear-gradient(180deg, #00BD5F 0%, #00E773 100%)
+    background-color: $primary-dark
 
   &--small
-    padding: 10px 44px 11px
-    height: 44px
-    text: $primary 500 14px
-    box-shadow: inset 0 0 0 2px $primary
-    background: transparent
+    text: 12px
 
-    &:hover
-      background: $primary
-      text: #fff
+  &--normal
+    text: 14px
 
-    &:active
-      box-shadow: inset 0px 3px 0px #005ED4
+  &--big
+    text: 12px @xl 16px
 
-    &^&--secondary
-      box-shadow: inset 0 0 0 2px $secondary
-      text: $secondary
+  &--wide
+    padding: 20px 40px
+  
+  &--all-width
+    width: 100%
+    text-align: center
 
-      &:hover
-        background: $secondary
-        text: #fff
-
-      &:active
-        box-shadow: inset 0px 3px 0px #009249
-
-    &^&--gray
-      box-shadow: inset 0 0 0 2px $gray
-      text: $gray
-
-      &:hover
-        background: $gray
-        text: #fff
-
-      &:active
-        box-shadow: inset 0px 3px 0px #727272
-
-    &^&--white
-      box-shadow: inset 0 0 0 2px #fff
-      text: #fff 500
-
-      &:hover
-        background: #fff
-        text: $primary
-
-      &:active
-        box-shadow: inset 0px 3px 0px #E4E4E4
-
-  &--icon-play
-    padding-right: 23px @sm 29px
-    padding-left: 21px @sm 24px
-
-    &:before
-      content: ''
-      display: inline-block
-      margin-right: 12px @sm 14px
-      background: svg-load('icons/play.svg' fill: #fff)
-      size: size('icons/play.svg')
-
-    &:hover:before
-      background: svg-load('icons/play.svg' fill: $primary)
-
-  &--icon-dollar
-    padding: 0 0 0 25px
-
-    &:after
-      content: ''
-      display: inline-block
-      background: #fff svg-load('icons/dollar.svg' fill: $primary) no-repeat center
-      size: 44px
-      border-radius: 40px
-      margin: -2px -3px -2px -2px
-      margin-left: 20px
-
-    &:hover:after
-      background: $primary svg-load('icons/dollar.svg' fill: #fff) no-repeat center
-
-  &--circle
-    background: linear-gradient(180deg, #147DFF 0%, #036FF5 100%)
-    box-shadow: 0px 7px 15px rgba(3, 111, 245, 0.3)
-    size: 42px
-    padding: 0
-    justify-content: center
-
-  &--icon-vk
-    &:before
-      content: ''
-      display: block
-      background: svg-load('icons/vk.svg' fill: #fff)
-      size: size('icons/vk.svg')
-
-  &--icon-in
-    &:before
-      content: ''
-      display: block
-      background: svg-load('icons/in.svg' fill: #fff)
-      size: size('icons/in.svg')
-
-  &--icon-fb
-    &:before
-      content: ''
-      display: block
-      background: svg-load('icons/fb.svg' fill: #fff)
-      size: size('icons/fb.svg')
-
-  &--icon-video
-    &:before
-      content: ''
-      display: block
-      background: svg-load('icons/play.svg' fill: #fff)
-      size: size('icons/play.svg')
-
-  &--icon-prev
-    &:before
-      content: ''
-      display: block
-      background: svg-load('icons/arrow.svg')
-      size: size('icons/arrow.svg')
-      transform: scale(-1)
-
-  &--icon-next
-    &:before
-      content: ''
-      display: block
-      background: svg-load('icons/arrow.svg')
-      size: size('icons/arrow.svg')
-
-  &--xl
-    size: 110px
-    border-radius: 100px
-
-    &:before
-      size: 24px 28px
-      background-size: contain
-      background-repeat: no-repeat
-      margin-right: -5px
-
-  &--echo
-    position: relative
-
-    &:after
-      content: ''
-      display: block
-      position: absolute 0 0 0 0
-      border-radius: 100px
-      box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.2), 0 0 0 20px rgba(255, 255, 255, 0.1)
-
-  &--slider
-    background: #FFFFFF
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1)
-    size: 52px
-    min-width: 52px
-    padding: 0
-
-    &:hover
-      background: #FFFFFF
-      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.07)
-
-    &:active
-      background: #FFFFFF
-      box-shadow: 0px 3px 17px rgba(0, 0, 0, 0.07)
-
-    &^&--gallery
-
-      &^^&--icon-prev
-        margin-left: 14px @md 20px @lg 70px @xl 10vw
-        position: absolute null null 30px 24% @sm static
-
-      &^^&--icon-next
-        margin-right: 14px @md 20px @lg 70px @xl 10vw
-        position: absolute null 24% 30px null @sm static
