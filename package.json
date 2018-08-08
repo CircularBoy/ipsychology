@@ -11,7 +11,8 @@
     "gulp-debug": "^3.1.0",
     "gulp-if": "^2.0.2",
     "postcss-nested-ancestors": "^2.0.0",
-    "postcss-responsive-type": "^1.0.0"
+    "postcss-responsive-type": "^1.0.0",
+    "postcss-retina-bg-img": "^4.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^8.2.0",

@@ -54,6 +54,9 @@
     require('postcss-nested'),
     require('postcss-inline-media'),
     require('postcss-short-spacing'),
+    require('postcss-retina-bg-img')({
+      assetDirectory: 'F:/Project/github/ipsychology/app/assets/img'
+    }),
     require('postcss-size'),
     require('postcss-position'),
     require('postcss-flexbox'),

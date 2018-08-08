@@ -67,8 +67,21 @@ if (headerMenu) {
   headerMenu.addEventListener('click', function() {
     document.querySelector('.header__nav').classList.toggle('header__nav--open');
     document.querySelector('.header').classList.toggle('header--menu-open');
-
+    document.querySelector('html').classList.toggle('hide-scroll')
     toggleMobileMenu();
+  });
+}
+
+if (window.innerWidth < 768) {
+
+  const menuItems = document.querySelectorAll('.header__nav a')
+
+  menuItems.forEach(function(item) {
+    item.addEventListener('click', function() {
+      document.querySelector('.header__nav').classList.toggle('header__nav--open');
+      document.querySelector('.header').classList.toggle('header--menu-open');
+      toggleMobileMenu();
+    });
   });
 }
 
@@ -164,7 +177,8 @@ if (aboutSlider) {
 
 gumshoe.init({
   activeClass: 'header__nav-link--active',
-  offset: 120,
+  offset: 95,
+  selector: '[data-gumshoe]',
   callback: function(nav) {
     if (nav === undefined) {
       document
@@ -179,7 +193,7 @@ gumshoe.init({
 
 var scroll = new SmoothScroll('.scroll-to[href*="#"]', {
   header: '[data-scroll-header]',
-  offset: 110
+  offset: 95
 });
 
 
@@ -214,14 +228,13 @@ const dropdown = document.querySelectorAll('[data-dropdown]');
 if (dropdown) {
   dropdown.forEach(function(elem) {
     elem.addEventListener('click', function() {
-      console.log(dropdown)
-      // dropdown.forEach(function(elem1) {
-      //   console.log(elem1)
-      //   elem1.classlist.add('therapy__item--active')
-      // });
+      dropdown.forEach(function(itemInner) {
+        itemInner.classList.remove('therapy__item--active')
+      });
       
-      // elem.classList.toggle('therapy__item--active');
+      elem.classList.toggle('therapy__item--active');
     });
+      
   });
 }
 

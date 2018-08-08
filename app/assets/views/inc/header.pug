@@ -2,14 +2,13 @@ header.header(data-gumshoe-header)
   .header__container.container
     a.header__logo(href='#!')
 
-    .header__nav(data-gumshoe)
-      //- a.header__nav-link.header__nav-link--active.scroll-to(href='#main') Главная
-      a.header__nav-link.scroll-to(href='#main') Главная
-      a.header__nav-link.scroll-to(href='#therapy') Онлайн-терапия
-      a.header__nav-link.scroll-to(href='#experts') Специалисты
-      a.header__nav-link.scroll-to(href='#about') О компании
-      a.header__nav-link.scroll-to(href='#price') Стоимость
-      a.header__nav-link.scroll-to(href='#bonus') Бонус
+    .header__nav
+      a.header__nav-link.scroll-to(href='#main' data-gumshoe) Главная
+      a.header__nav-link.scroll-to(href='#therapy' data-gumshoe) Онлайн-терапия
+      a.header__nav-link.scroll-to(href='#experts' data-gumshoe) Специалисты
+      a.header__nav-link.scroll-to(href='#about' data-gumshoe) О компании
+      a.header__nav-link.scroll-to(href='#price' data-gumshoe) Стоимость
+      a.header__nav-link.scroll-to(href='#bonus' data-gumshoe) Бонус
       +soc(class='header__nav-soc soc soc--horizontal')
 
     button.header__btn.btn.btn--small.btn--white.btn--icon-dollar(data-show-id='recall') заказать консультацию
