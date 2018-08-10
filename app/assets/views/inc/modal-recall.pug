@@ -1,0 +1,23 @@
+.modal.modal--recall(data-id='recall')
+  .modal__close(onclick='closeModal()')
+
+  .modal__content
+    .price__form.form
+      .form__title Записаться на консультацию
+
+      form.form__form
+        .input-field.input-field--person.input-field--bordered
+          input.input(type='text' placeholder='Имя')
+
+        .input-field.input-field--email.input-field--bordered
+          input.input(type='text' placeholder='E-mail')
+
+        .input-field.input-field--phone.input-field--bordered
+          input.input(type='text' placeholder='Телефон')
+
+        .input-field.input-field--skype.input-field--bordered
+          input.input(type='text' placeholder='Skype')
+
+        .input-field
+          .btn.btn--all-width.btn--big Записаться
+        

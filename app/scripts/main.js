@@ -86,6 +86,18 @@ if (window.innerWidth < 768) {
 }
 
 //
+// fix menu on scroll
+//
+
+// const headerMenuMobile = document.querySelector('.header__nav--open');
+
+// if(headerMenuMobile) {
+//   headerMenuMobile.onscroll = function() {
+//     return false
+//   }
+// }
+
+//
 // aboutUs slider
 //
 
@@ -231,7 +243,7 @@ if (dropdown) {
       dropdown.forEach(function(itemInner) {
         itemInner.classList.remove('therapy__item--active')
       });
-      
+
       elem.classList.toggle('therapy__item--active');
     });
       
@@ -254,34 +266,30 @@ if (dropdown) {
 // Modals
 //
 
-// function eventFire(el, etype) {
-//   if (el.fireEvent) {
-//     el.fireEvent('on' + etype);
-//   } else {
-//     var evObj = document.createEvent('Events');
-//     evObj.initEvent(etype, true, false);
-//     el.dispatchEvent(evObj);
-//   }
-// }
+function eventFire(el, etype) {
+  if (el.fireEvent) {
+    el.fireEvent('on' + etype);
+  } else {
+    var evObj = document.createEvent('Events');
+    evObj.initEvent(etype, true, false);
+    el.dispatchEvent(evObj);
+  }
+}
 
-// function closeModal() {
-//   eventFire(document.querySelector('.basicLightbox '), 'click');
-// }
+function closeModal() {
+  eventFire(document.querySelector('.basicLightbox '), 'click');
+}
 
-// const getTargetHTML = function(elem) {
-//   let id = elem.getAttribute('data-show-id');
-//   const target = document.querySelector(`[data-id="${id}"]`);
-//   return target.outerHTML;
-// };
+const getTargetHTML = function(elem) {
+  let id = elem.getAttribute('data-show-id');
+  const target = document.querySelector(`[data-id="${id}"]`);
+  return target.outerHTML;
+};
 
-// document.querySelectorAll('[data-show-id]').forEach(function(elem) {
-//   const html = getTargetHTML(elem);
-//   elem.onclick = basicLightbox.create(html, {
-//     afterShow: function() {
-//       inputMaskInit();
-//     }
-//   }).show;
-// });
+document.querySelectorAll('[data-show-id]').forEach(function(elem) {
+  const html = getTargetHTML(elem);
+  elem.onclick = basicLightbox.create(html).show;
+});
 
 
 //

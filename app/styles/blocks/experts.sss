@@ -1,0 +1,56 @@
+.experts
+  padding: 10px 0 40px @md 80px 0
+
+  &__title
+    margin-bottom: 0 @md 100px
+    text-align: center
+
+  &__items
+    box: space-between wrap
+
+  &__item
+    box: vertical @md horizontal
+    width: 100% @md 50%
+    max-width: 100% @md 50%
+    margin-top: 25px @md 70px
+
+  &__visual
+    box: vertical center middle
+    margin-right: 0 @md 30px
+  
+  &__avatar
+    background: #eeeeee
+    size: 170px
+    border-radius: 50%
+
+  &__button
+    margin-top: 25px
+    display: inline-block
+    white-space: nowrap
+
+  &__name
+    margin: 20px 0 -6px
+    text: 20px 2 600
+    text-align: center
+
+  &__dir
+    text: 14px
+    text-align: center
+
+  &__xp
+    text: 14px * 700
+    margin: 15px 0 22px
+
+  &__desc
+    text: 16px 1.6
+
+  &__detail
+    margin-top: 10px
+    text: $primary 18px
+
+    &:after 
+      margin-left: 8px
+      content: ''
+      display: inline-block
+      background: svg-load('experts/arrow.svg' fill: $primary) no-repeat center / contain
+      size: size('experts/arrow.svg')

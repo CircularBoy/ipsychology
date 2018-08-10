@@ -13,7 +13,7 @@
 
     &:first-child
       padding: 0
-      margin-bottom: 60px
+      margin-bottom: 35px @md 60px
 
     &:last-child
       padding-right: 10px @xl 0
@@ -22,7 +22,7 @@
     text-align: center
     width: 100% @xl 70%
     margin: 0 auto
-    margin-bottom: 50px
+    margin-bottom: 35px @md 50px
 
     &--hide-md
       display: none @md block
@@ -36,10 +36,11 @@
   &__tablet
     display: none @md block
     position: relative
-    width: 574px @xl initial
+    width: 485px 
     margin: 0 auto @xl 0
     margin-top: 63px
     margin-bottom: 67px
+    transform: 0 @xl translateX(36px)
 
     &-bottom, &-top, &-left, &-right
       position: absolute
@@ -64,7 +65,7 @@
 
     &-right
       position: absolute
-      right: 56px
+      right: -33px
       bottom: 0
       background: resolve('about-us/tablet2.png') no-repeat
       size: size('about-us/tablet2.png') no-repeat
@@ -84,7 +85,7 @@
   &__icon-scroll
     position: absolute
     z-index: 9999
-    right: 55%
+    right: 47%
     left: initial
     top: 250px
   
@@ -93,20 +94,25 @@
       opacity: 0
 
   &__inner
-    margin-right: 90px
+    // margin-right: 0px
     background-color: $white-dark
 
   .simplebar-track
-    background-color: $white-dark
+    background-color: rgba(52, 49, 38, 0.10)
+    right: 3px
 
-  .simplebar-scrollbar
-    // background-color: $primary
+  .simplebar-track.vertical
+    top: 4px 
 
   .simplebar-scrollbar:before
     background-color: $primary-dark
 
+  .simplebar-track.horizontal
+    display: none
+
   &__item
     margin: * 30px * 30px
+    margin-right: 30px @md 40px
     padding: 14px 18px @md 20px 40px
     background-color: #fff
     box-shadow: none @md 0px 7px 7.68px 0.32px rgba(0, 0, 0, 0.23)

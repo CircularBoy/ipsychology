@@ -2,7 +2,7 @@
   display: none !important
 
 .basicLightbox
-  background: rgba(9, 28, 81, 0.82)
+  background: rgba(0, 0, 0, .7)
 
   .modal
     display: block
@@ -15,7 +15,6 @@
   position: relative
   margin: 0 auto
   display: none
-  border-radius: 5px
 
   &--recall
     width: calc(100% - 20px) @sm 460px
@@ -29,15 +28,16 @@
       size: 290px 160px @xs 400px 230px @md 580px 330px @lg 760px 426px @xl 820px 460px
 
   &__close
-    // background: svg-load('icons/close-modal.svg') center / contain
-    size: 15px
+    background: svg-load('close-modal.svg', fill: $secondary-dark) center / contain
+    size: 20px
     position: absolute 9px 9px null null
     cursor: pointer
-    opacity: .8
-    transition: $tr
+    transition: $transition
     z-index: 2
+    opacity: .9
 
     &:hover
+      transform: scale(1.1) translate(-2px, 2px)
       opacity: 1
 
   &__title

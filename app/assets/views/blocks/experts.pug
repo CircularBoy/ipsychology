@@ -1,0 +1,17 @@
+section#team.experts
+  .container
+    .experts__title.h2 Выбрать психолога
+
+    .experts__items
+      each item in experts
+        .experts__item
+          .experts__visual
+            .experts__avatar
+            .experts__button.btn.btn--small.btn--wide Заказать сессию
+
+          .experts__text
+            .experts__name= item.name
+            .experts__dir= item.dir
+            .experts__xp= item.xp
+            .experts__desc= item.desc
+            .experts__detail(data-show-id= item.id) Подробнее

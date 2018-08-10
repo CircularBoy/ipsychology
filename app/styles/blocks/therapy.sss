@@ -33,6 +33,11 @@
       size: size('arrow-down.svg')
       transition: .4s all
 
+    &:hover
+
+      ^^&__desc
+        display: block
+
     &:hover:after, &--active:after
       transform: translateY(6px)
 
@@ -64,6 +69,7 @@
     background-color: #fff
     z-index: 9
     padding: 20px 24px
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.34)
     text: 14px 1.5
 
 @keyframes bounceSmall
