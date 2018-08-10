@@ -19,6 +19,15 @@
   &--recall
     width: calc(100% - 20px) @sm 460px
     padding: 25px 20px 30px 20px @sm 30px 40px @md 60px 74px
+  
+  &--full
+    width: calc(100% - 20px) @sm calc(100% - 40px) @lg calc(100% - 50px) @xl calc(1200px - 40px)
+    padding: 35px 20px 30px 20px @sm 30px 40px @md 60px 74px
+    overflow: auto
+
+    .modal__content
+      max-height: 80vh
+
 
   &--video
     border-radius: 0

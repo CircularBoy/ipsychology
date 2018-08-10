@@ -1,0 +1,7 @@
+each item in experts
+  .modal.modal--full(data-id= item.id)
+    .modal__close(onclick='closeModal()')
+
+    .modal__content(data-simplebar data-simplebar-auto-hide="false")
+      .experts__item.experts__item--modal
+        +expert(item, true)

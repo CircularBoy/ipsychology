@@ -4,14 +4,12 @@ section#team.experts
 
     .experts__items
       each item in experts
-        .experts__item
-          .experts__visual
-            .experts__avatar
-            .experts__button.btn.btn--small.btn--wide Заказать сессию
-
-          .experts__text
-            .experts__name= item.name
-            .experts__dir= item.dir
-            .experts__xp= item.xp
-            .experts__desc= item.desc
-            .experts__detail(data-show-id= item.id) Подробнее
+        if(item.show)
+          .experts__item.experts__item--active
+            +expert(item)
+        else
+          .experts__item
+            +expert(item)
+          
+      .experts__btn-wrap
+        .experts__button.btn.btn--normal(data-all-experts) Свободные психологи

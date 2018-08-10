@@ -7,3 +7,26 @@ mixin soc()
 
 mixin next-block(link)
   a.next-block.scroll-to(href='#' + link)
+
+mixin expert(item, full)
+  .experts__visual
+    .experts__avatar(class='experts__avatar--' + item.img)
+    .experts__item-button.btn.btn--small.btn--wide Заказать сессию
+
+  .experts__text
+    .experts__name= item.name
+    .experts__dir= item.dir
+    .experts__xp= item.xp
+    if(!full)
+      .experts__desc= item.desc
+      .experts__detail(data-show-id= item.id) Подробнее
+
+    if(full)
+      .experts__desc.experts__desc--full!= item.descFull
+
+      .experts__education
+        .experts__education-title Образование:
+
+        ul.experts__education-list
+          each li in item.education
+            li.experts__education-li= li

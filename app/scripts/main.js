@@ -214,22 +214,31 @@ var scroll = new SmoothScroll('.scroll-to[href*="#"]', {
 //  custom scroll bar
 //
 
-const elem = document.querySelector('.element')
+const customScrollTablet = document.querySelector('[data-custom-scroll-tablet')
 
-const scrollBar = new SimpleBar(elem,{ 
+const scrollBar = new SimpleBar(customScrollTablet,{ 
   autoHide: false 
-})
+});
+
 
 //hide icon scroll
-const tablet = document.querySelector('.about-us__inner');
-
-if(tablet) {
+if(customScrollTablet) {
   const scrollIcon = document.querySelector('#scroll-icon');
   scrollBar.getScrollElement().addEventListener('scroll', function() {
     console.log(scrollIcon)
     scrollIcon.classList.add('about-us__icon-scroll--hide');
   })
 }
+
+//
+// simple scroll
+//
+
+// const customScroll = document.querySelectorAll('[data-custom-scroll')
+
+// if(customScroll.length > 0) {
+//   customScroll.forEach(el => new SimpleBar)
+// }
 
 //
 // therapy dropdown
@@ -241,13 +250,33 @@ if (dropdown) {
   dropdown.forEach(function(elem) {
     elem.addEventListener('click', function() {
       dropdown.forEach(function(itemInner) {
-        itemInner.classList.remove('therapy__item--active')
+        // itemInner.classList.remove('therapy__item--active')
       });
-
-      elem.classList.toggle('therapy__item--active');
+      const click = elem.getAttribute('data-click')
+      if (click)
+        elem.classList.toggle('therapy__item--hide');
+      
+      elem.setAttribute('data-click', 'true')
     });
       
   });
+}
+
+//
+// experts more
+//
+
+const expertBtn = document.querySelector('[data-all-experts]');
+
+if(expertBtn) {
+  expertBtn.addEventListener('click' , function() {
+    const expertItemWrap = expertBtn.parents('.experts__items')[0];
+    const expertItems = expertItemWrap.querySelectorAll('.experts__item:not(.experts__item--active)');
+    
+    expertItems.forEach(function(item) {
+      item.classList.add('experts__item--active')
+    })
+  })
 }
 
 //

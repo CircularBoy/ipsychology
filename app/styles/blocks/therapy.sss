@@ -36,15 +36,15 @@
     &:hover
 
       ^^&__desc
-        display: block
+        display: initial @sm block
 
     &:hover:after, &--active:after
       transform: translateY(6px)
 
-    &--active
+    &--hide
 
       ^^&__desc
-        display: block
+        display: none !important
 
   &__img
     
