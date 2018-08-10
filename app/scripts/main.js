@@ -330,3 +330,21 @@ document.querySelectorAll('[data-show-id]').forEach(function(elem) {
 //   disable: window.innerWidth < 1024
 // });
 
+//
+// animate counter
+//
+
+var options = {
+  useEasing: true,
+  useGrouping: true, 
+  separator: ',', 
+  decimal: '.', 
+};
+var counter1 = new CountUp(document.querySelectorAll('.statistic__count:nth-child(1)'), 0, 48, 0, 2.5, options);
+var counter2 = new CountUp(document.querySelectorAll('.statistic__count:nth-child(2)'), 0, 48, 0, 2.5, options);
+var counter3 = new CountUp(document.querySelectorAll('.statistic__count:nth-child(3)'), 0, 48, 0, 2.5, options);
+if (!demo.error) {
+  demo.start();
+} else {
+  console.error(demo.error);
+}

@@ -24,3 +24,40 @@ body
 
   &:hover
     text-decoration: underline
+
+ul
+
+  li
+    & + &
+      margin-top: 8px
+
+    &:before
+      display: inline-block
+      content: ''
+      background-color: $secondary
+      size: 7px
+      margin-bottom: 3px
+      margin-right: 8px
+
+.doc
+  .h1
+    text: 23px * 1.1 @sm 36px
+    margin-bottom: 20px @sm 35px @lg 40px
+
+    & + p
+      width: 100% @sm 70%
+      text: 16px * 600
+
+  .h2
+    margin: 30px 0 20px
+
+  p + p
+    margin-top: 10px
+  
+  h5
+    text: 18px
+    margin-bottom: 10px
+
+  h6
+    margin: 20px 0 10px
+    text: * * 600
