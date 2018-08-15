@@ -2,11 +2,13 @@
 
   &__wrap
     box: vertical @md horizontal space-between
-    padding: 60px *
+    padding: 30px * @sm 60px *
   
   &__item
     text-align: center
-    margin-bottom: @md-down 20px
+
+    & + &
+      margin-top: @md-down 20px
 
   &__count
     text: $secondary 24px 1 800 @xs 32px @md 60px

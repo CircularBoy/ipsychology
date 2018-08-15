@@ -10,7 +10,13 @@ html(lang='en' dir='ltr')
 
       gtag('config', 'UA-123707881-1');
 
-    script(src="scripts/pixel-index.js")
+    //- Facebook Pixel Code
+    script(src='scripts/pixel.js')
+      
+
+    noscript
+      img(height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1734047196642425&ev=PageView&noscript=1")
+
 
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
@@ -26,17 +32,6 @@ html(lang='en' dir='ltr')
     link(href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet")
     link(href='styles/libs.min.css' rel='stylesheet')
     link(href='styles/main.css' rel='stylesheet')
-
-    meta(name="description" itemprop="description" content="Psychologist – Психотерапия онлайн. Подбор психотерапевта онлайн. Видео-чат. 45 $/сессия. Психологическая помощь. Полная конфиденциальность.")
-    meta(property="og:locale" content='ru-RU')
-    meta(property="og:type" content='article')
-    meta(property="og:description" content='Psychologist – Психотерапия онлайн. Подбор психотерапевта онлайн. Видео-чат. 45 $/сессия. Психологическая помощь. Полная конфиденциальность.')
-    meta(property="og:url" content='http://www.ipsychologist.online/')
-    meta(property="og:title" content='iPsychologist - Психотерапия онлайн')
-    meta(property="og:image" content='http://www.ipsychologist.online/img/logo.png')
-    meta(property="og:image:width" content='150')
-    meta(property="og:og:image:height" content='125')
-    meta(property="og:site_name" content='iPsychologist')
 
   body
     include var.pug

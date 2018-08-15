@@ -2,6 +2,8 @@
   box: space-between center
 
   &__item
+    opacity: 1
+    transition: $transition
 
     @each $item in teleg, vk, inst, face
       &--$(item)
@@ -10,6 +12,9 @@
 
         &:hover
           background: svg-load('soc/$(item).svg', fill: $primary-dark) no-repeat center / contain
+        
+        &:active
+          opacity: .5
 
   &--horizontal
 

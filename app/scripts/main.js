@@ -23,6 +23,57 @@ Element.prototype.parents = function(selector) {
 };
 
 //
+// forms
+//
+
+//validate
+function validate(form) {
+  // const inputs = form.querySelectorAll('input[type=text]');
+  let valid = 1;
+  // inputs.forEach(elem => {
+  //   let val = elem.value;
+  //   let field = elem.parentNode;
+  //   if(val !== undefined && val !== ' ' && val.length > 3 && val.length < 50) {
+  //     field.classList.remove('input-field--error');
+  //   } else {
+  //     field.classList.add('input-field--error');
+  //     valid = 0;
+  //   }  
+  // });   
+
+  return valid;
+}
+
+//handler
+function formHadle(form, redirectLink, phpHandler) {
+  form.addEventListener('submit', function(e){
+    e.preventDefault()
+
+    const valid = validate(this)
+    if(valid) {
+      this.classList.add('form__form--load')
+      var request = new XMLHttpRequest();
+      request.onreadystatechange = function() {
+        if(request.readyState === 4) {
+          if(request.status === 200) { 
+            console.log('text ' + request.responseText)
+            window.location.href = redirectLink;
+          } else {
+            console.log('Упс, что-то пошло не так. Попробуйте, пожалуйста, еще раз')
+          } 
+        }
+      }
+      const data = Array.from(new FormData(this), e => e.map(encodeURIComponent).join('=')).join('&')
+      request.open('POST', phpHandler, true);
+      request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+      request.send(data);
+    }
+      
+  });
+}
+
+
+//
 // Dots generate for sliders
 //
 
@@ -86,6 +137,17 @@ if (window.innerWidth < 768) {
 }
 
 //
+// header on scroll active
+//
+
+const header = document.querySelector('.header');
+if(header) {
+  window.addEventListener('scroll', function() {
+    const distanceTop = window.pageYOffset || document.documentElement.scrollTop;
+    distanceTop > 0 ? header.classList.add('header--scroll') : header.classList.remove('header--scroll')
+  })
+}
+//
 // fix menu on scroll
 //
 
@@ -116,15 +178,26 @@ if (aboutUsSlider) {
     aboutUsSliderInit.go('>');
   });
 
-  const aboutUsSliderFn = function() {
-    aboutUsSliderInit = new Glide(aboutUsSlider, {
-      type: 'carousel',
-      mode: 'vertical',
-      perView: 1
-    });
+  var aboutUsSliderInit = false;
 
-    aboutUsSliderInit.mount();
-    
+  const aboutUsSliderFn = function() {
+    if (window.innerWidth < 768) {
+      if (!aboutUsSliderInit) {
+        aboutUsSliderInit = new Glide(aboutUsSlider, {
+          type: 'carousel',
+          mode: 'vertical',
+          perView: 1
+        });
+
+        aboutUsSliderInit.mount();
+      } else {
+        // destroy slider if init
+        if (typeof aboutSliderInit === 'object') {
+          aboutSliderInit.destroy();
+          aboutSliderInit = false;
+        }
+      }
+    }
   };
 
   aboutUsSliderFn();
@@ -216,18 +289,19 @@ var scroll = new SmoothScroll('.scroll-to[href*="#"]', {
 
 const customScrollTablet = document.querySelector('[data-custom-scroll-tablet')
 
-const scrollBar = new SimpleBar(customScrollTablet,{ 
-  autoHide: false 
-});
-
-
-//hide icon scroll
 if(customScrollTablet) {
-  const scrollIcon = document.querySelector('#scroll-icon');
-  scrollBar.getScrollElement().addEventListener('scroll', function() {
-    console.log(scrollIcon)
-    scrollIcon.classList.add('about-us__icon-scroll--hide');
-  })
+  const scrollBar = new SimpleBar(customScrollTablet, { 
+    autoHide: false 
+  });
+
+  //hide icon scroll
+  if(customScrollTablet) {
+    const scrollIcon = document.querySelector('#scroll-icon');
+    scrollBar.getScrollElement().addEventListener('scroll', function() {
+      console.log(scrollIcon)
+      scrollIcon.classList.add('about-us__icon-scroll--hide');
+    })
+  }
 }
 
 //
@@ -280,18 +354,6 @@ if(expertBtn) {
 }
 
 //
-// Phone mask
-//
-
-// const inputMaskInit = function() {
-//   new Inputmask({
-//     mask: '+7 (999) 999-99-99'
-//   }).mask(document.querySelectorAll('[name="phone"]'));
-// };
-
-// inputMaskInit();
-
-//
 // Modals
 //
 
@@ -315,20 +377,60 @@ const getTargetHTML = function(elem) {
   return target.outerHTML;
 };
 
-document.querySelectorAll('[data-show-id]').forEach(function(elem) {
+//for all modal
+document.querySelectorAll('[data-show-id]:not([data-exp-id])').forEach(function(elem) {
   const html = getTargetHTML(elem);
-  elem.onclick = basicLightbox.create(html).show;
+  const instance = basicLightbox.create(html, {
+    afterShow: (instance) => {
+      let modal = instance.element();
+      const id = elem.getAttribute('data-exp-id');
+      const inputHide = modal.querySelector('[data-input-id]');
+      if(inputHide) {
+        inputHide.value = id;
+      }
+
+      const form = modal.querySelector('form');
+
+      formHadle(form, 'success.html', 'rest.php')
+    },
+  });
+
+  elem.addEventListener('click', function() {
+    instance.show()
+  })
+
 });
 
+//for modal expert
+document.querySelectorAll('[data-show-id][data-exp-id]').forEach(function(elem) {
+  const html = getTargetHTML(elem);
+  const instance = basicLightbox.create(html, {
+    afterShow: (instance) => {
+      let modal = instance.element();
+      const id = elem.getAttribute('data-exp-id');
+      const inputHide = modal.querySelector('[data-input-id]');
+      inputHide.value = id;
+
+      const form = modal.querySelector('form');
+
+      formHadle(form, 'success.html', 'rest.php')
+    },
+  });
+
+  elem.addEventListener('click', function() {
+    instance.show()
+  })
+
+});
 
 //
 // Animate
 //
 
-// AOS.init({
-//   once: true,
-//   disable: window.innerWidth < 1024
-// });
+AOS.init({
+  once: true,
+  disable: window.innerWidth < 1024
+});
 
 //
 // animate counter
@@ -337,14 +439,48 @@ document.querySelectorAll('[data-show-id]').forEach(function(elem) {
 var options = {
   useEasing: true,
   useGrouping: true, 
-  separator: ',', 
+  separator: '', 
   decimal: '.', 
 };
-var counter1 = new CountUp(document.querySelectorAll('.statistic__count:nth-child(1)'), 0, 48, 0, 2.5, options);
-var counter2 = new CountUp(document.querySelectorAll('.statistic__count:nth-child(2)'), 0, 48, 0, 2.5, options);
-var counter3 = new CountUp(document.querySelectorAll('.statistic__count:nth-child(3)'), 0, 48, 0, 2.5, options);
-if (!demo.error) {
-  demo.start();
-} else {
-  console.error(demo.error);
+
+const itemCounter1 = document.querySelector('.statistic__item:nth-child(1) .statistic__count');
+const itemCounter2 = document.querySelector('.statistic__item:nth-child(2) .statistic__count');
+const itemCounter3 = document.querySelector('.statistic__item:nth-child(3) .statistic__count');
+
+const counter1 = new CountUp(itemCounter1, 0, 48, 0, 2.5, options);
+const counter2 = new CountUp(itemCounter2, 0, 650, 0, 3, options);
+const counter3 = new CountUp(itemCounter3, 0, 27600, 0, 3.7, options);
+
+const itemOffset1 = itemCounter1.getBoundingClientRect().top - window.innerHeight;
+const itemOffset2 = itemCounter2.getBoundingClientRect().top - window.innerHeight;
+const itemOffset3 = itemCounter3.getBoundingClientRect().top - window.innerHeight;
+
+function counter () {
+  const distance = window.pageYOffset || document.documentElement.scrollTop;
+  if(distance > itemOffset1) {
+    counter1.start();
+  }
+  if(distance > itemOffset2) {
+    counter2.start();
+  }
+  if(distance > itemOffset3) {
+    counter3.start();
+  } 
+}
+
+counter()
+
+window.onscroll = function() {
+  counter()
+}
+
+// some forms handler
+const priceForm = document.querySelector('.js-price-form');
+if (priceForm) {
+  formHadle(priceForm, 'success.html', 'rest.php');
+}
+const bonusForm = document.querySelector('.js-bonus-form');
+
+if (bonusForm) {
+  formHadle(bonusForm, 'download.html', 'rest-book.php');
 }

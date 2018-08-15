@@ -1,11 +1,11 @@
 .therapy
   background-color: $white-dark
-  padding-bottom: 80px
+  padding-bottom: 40px @sm 80px
   position: relative
 
   &__title
     text-align: center
-    padding: 60px 0 0
+    padding: 40px 0 0 @sm 60px 0 0
 
   &__wrap
     box: vertical @sm horizontal space-between wrap
@@ -24,7 +24,7 @@
 
     &:last-child
       ^^&__img
-        transform: translateY(10px)
+        // transform: translateY(10px)
 
 
     &:after
@@ -67,7 +67,7 @@
     bottom: 10px
     transform: translateY(100%)
     background-color: #fff
-    z-index: 9
+    z-index: 99999
     padding: 20px 24px
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.34)
     text: 14px 1.5

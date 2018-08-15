@@ -1,6 +1,12 @@
 .form
   width: 100%
   max-width: 370px
+  margin-right: 1px @xs 0
+  position: relative
+
+
+  &--hide
+    background-color: #000 !important
 
   &__title
     margin-bottom: 20px
@@ -21,16 +27,30 @@
       margin-left: 6px
       background: svg-load('lock.svg', fill: $secondary)
       size: size('lock.svg')
+  
+  &__form
+    & > * 
+      opacity: 1
+      tansititon: $transition
+      
+    &--load
+      & > *:not(.form-load)
+        opacity: 0
+
+      .form-load
+        display: block
 
 .input-field
+  opacity: 1
   box: center
+  transition: $transition
 
   & + &
     margin-top: 26px
   
   &:after
     content: ''
-    margin-left: -50px
+    margin-left: -51px
     position: relative
     z-index: 22
 
@@ -79,4 +99,14 @@
   &:focus
     border-color: $secondary-dark
 
-  
+.form-load
+  display: none
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+
+  .form-load__text
+    font-size: 16px
+    margin-top: 10px
+    text-align: center
