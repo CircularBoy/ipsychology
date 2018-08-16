@@ -286,9 +286,21 @@ gumshoe.init({
 
 // Init smoth scroll
 
+const offset = function() {
+  if(window.innerWidth > '1199') {
+    return '114px'
+  } else if (window.innerWidth > '719') {
+    return '101'
+  } else {
+    return '72'
+  }
+}();
+console.log(offset)
+
+
 var scroll = new SmoothScroll('.scroll-to[href*="#"]', {
   header: '[data-scroll-header]',
-  offset: 95
+  offset: offset
 });
 
 
