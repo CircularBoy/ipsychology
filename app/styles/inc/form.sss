@@ -53,6 +53,9 @@
     margin-left: -51px
     position: relative
     z-index: 22
+    pointer-events: none
+    opacity: 1
+    transition: $transition
 
   @each $icon in person, email, phone, skype
     &--$(icon)
@@ -80,6 +83,11 @@
       border-color: #ce111d
       text: #b79569
 
+  &--focus
+
+    &:after
+      opacity: 0
+
 .input
   position: relative
   border: 1px solid
@@ -88,7 +96,7 @@
   height: 49px
   line-height: 49px
   outline: 0
-  text: $secondary-dark 18px
+  text: $secondary-dark 16px @sm 18px
   font-family: $ff
   width: 100%
   transition: $transition
@@ -98,6 +106,7 @@
 
   &:focus
     border-color: $secondary-dark
+  
 
 .form-load
   display: none

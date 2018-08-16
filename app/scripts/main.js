@@ -21,29 +21,27 @@ Element.prototype.parents = function(selector) {
 
   return elements;
 };
-
 //
 // forms
 //
 
-//validate
+// validate
 function validate(form) {
-  // const inputs = form.querySelectorAll('input[type=text]');
+  const inputs = form.querySelectorAll('input[type=text]');
   let valid = 1;
-  // inputs.forEach(elem => {
-  //   let val = elem.value;
-  //   let field = elem.parentNode;
-  //   if(val !== undefined && val !== ' ' && val.length > 3 && val.length < 50) {
-  //     field.classList.remove('input-field--error');
-  //   } else {
-  //     field.classList.add('input-field--error');
-  //     valid = 0;
-  //   }  
-  // });   
+  inputs.forEach(elem => {
+    let val = elem.value;
+    let field = elem.parentNode;
+    if(val !== undefined && val !== ' ' && val.length > 3 && val.length < 50) {
+      field.classList.remove('input-field--error');
+    } else {
+      field.classList.add('input-field--error');
+      valid = 0;
+    }  
+  });   
 
   return valid;
 }
-
 //handler
 function formHadle(form, redirectLink, phpHandler) {
   form.addEventListener('submit', function(e){
@@ -72,6 +70,18 @@ function formHadle(form, redirectLink, phpHandler) {
   });
 }
 
+// hide icons func 
+function hideIcons (inputs) {
+  if(inputs && window.innerWidth < 576) {
+    inputs.forEach(function(item) {
+      item.addEventListener('input', function() {
+        let inputVal = item.value;
+        let inputParent = this.parentNode;
+        inputVal.length > 0 ? inputParent.classList.add('input-field--focus') : inputParent.classList.remove('input-field--focus')
+      })
+    })
+  }
+}
 
 //
 // Dots generate for sliders
@@ -147,18 +157,19 @@ if(header) {
     distanceTop > 0 ? header.classList.add('header--scroll') : header.classList.remove('header--scroll')
   })
 }
+
+
 //
 // fix menu on scroll
 //
 
-// const headerMenuMobile = document.querySelector('.header__nav--open');
+const headerMenuMobile = document.querySelector('.header__nav--open');
 
-// if(headerMenuMobile) {
-//   headerMenuMobile.onscroll = function() {
-//     return false
-//   }
-// }
-
+if(headerMenuMobile) {
+  headerMenuMobile.onscroll = function() {
+    return false
+  }
+}
 //
 // aboutUs slider
 //
@@ -257,7 +268,6 @@ if (aboutSlider) {
   window.addEventListener('resize', aboutSliderFn);
 }
 
-
 // Init gumshoe
 
 gumshoe.init({
@@ -283,11 +293,12 @@ var scroll = new SmoothScroll('.scroll-to[href*="#"]', {
 
 
 
+
 //
 //  custom scroll bar
 //
 
-const customScrollTablet = document.querySelector('[data-custom-scroll-tablet')
+const customScrollTablet = document.querySelector('[data-custom-scroll-tablet]');
 
 if(customScrollTablet) {
   const scrollBar = new SimpleBar(customScrollTablet, { 
@@ -295,15 +306,12 @@ if(customScrollTablet) {
   });
 
   //hide icon scroll
-  if(customScrollTablet) {
-    const scrollIcon = document.querySelector('#scroll-icon');
-    scrollBar.getScrollElement().addEventListener('scroll', function() {
-      console.log(scrollIcon)
-      scrollIcon.classList.add('about-us__icon-scroll--hide');
-    })
-  }
-}
+  const scrollIcon = document.querySelector('#scroll-icon');
 
+  scrollBar.getScrollElement().addEventListener('scroll', function() {
+    scrollIcon.classList.add('about-us__icon-scroll--hide');
+  })
+}
 //
 // simple scroll
 //
@@ -311,7 +319,7 @@ if(customScrollTablet) {
 // const customScroll = document.querySelectorAll('[data-custom-scroll')
 
 // if(customScroll.length > 0) {
-//   customScroll.forEach(el => new SimpleBar)
+//   customScroll.forEach(el => new SimpleBar());
 // }
 
 //
@@ -390,8 +398,15 @@ document.querySelectorAll('[data-show-id]:not([data-exp-id])').forEach(function(
       }
 
       const form = modal.querySelector('form');
+      if(form) {
+        formHadle(form, 'success.html', 'rest.php')
+        
+        const formInputs = form.querySelectorAll('.input')
+        hideIcons(formInputs)
+      }
 
-      formHadle(form, 'success.html', 'rest.php')
+      
+      
     },
   });
 
@@ -414,6 +429,10 @@ document.querySelectorAll('[data-show-id][data-exp-id]').forEach(function(elem) 
       const form = modal.querySelector('form');
 
       formHadle(form, 'success.html', 'rest.php')
+
+      const formInputs = form.querySelectorAll('.input')
+      
+      hideIcons(formInputs)
     },
   });
 
@@ -484,3 +503,9 @@ const bonusForm = document.querySelector('.js-bonus-form');
 if (bonusForm) {
   formHadle(bonusForm, 'download.html', 'rest-book.php');
 }
+
+//inputs form keydown hide icons
+
+const formInputs = document.querySelectorAll('.input')
+
+hideIcons(formInputs)

@@ -5,7 +5,7 @@ section#team.experts
     .experts__items
       each item in experts
         if(item.show)
-          .experts__item.experts__item--active(data-aos='fade-up')
+          .experts__item.experts__item--active()
             +expert(item)
         else
           .experts__item

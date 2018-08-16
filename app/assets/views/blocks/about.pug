@@ -10,7 +10,7 @@ section#why.about
           .glide__track(data-glide-el='track')
             .about__wrap.glide__slides
               each item in about
-                .about__item.glide__slide(data-aos='fade-up')
+                .about__item.glide__slide
                   div(class="about__img about__img--" + item.img)
                   .about__item-title!= item.title
           
