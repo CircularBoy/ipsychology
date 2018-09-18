@@ -19,6 +19,7 @@
     gulpWatchPug = require('gulp-watch-pug'),
     cssbeautify = require('gulp-cssbeautify'),
     stripCssComments = require('gulp-strip-css-comments'),
+    babel = require("gulp-babel"),
     cssDeclarationSorter = require('css-declaration-sorter');
 
   // Попробовать позже https://www.npmjs.com/package/gulp-pug-inheritance
@@ -109,7 +110,17 @@
 
   // write js
   gulp.task('scripts', function() {
-    return gulp.src('app/scripts/**').pipe(gulp.dest('dest/scripts'));
+    return gulp.src('app/scripts/**')
+    .pipe(babel({
+      "presets": [
+        ["env", {
+          "targets": {
+            "browsers": ["last 2 versions", "safari >= 7", "ie >= 11"]
+          }
+        }]
+      ]
+      }))
+    .pipe(gulp.dest('dest/scripts'));
   });
 
   //delete dest folder

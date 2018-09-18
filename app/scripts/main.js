@@ -3,7 +3,10 @@
 //
 //jquery parents() pure js
 //
-
+(function () {
+  if ( typeof NodeList.prototype.forEach === "function" ) return false;
+  NodeList.prototype.forEach = Array.prototype.forEach;
+})();
 Element.prototype.parents = function(selector) {
   var elements = [];
   var elem = this;
@@ -167,7 +170,7 @@ const headerMenuMobile = document.querySelector('.header__nav--open');
 
 if(headerMenuMobile) {
   headerMenuMobile.onscroll = function() {
-    return false
+    return false;
   }
 }
 //
@@ -288,15 +291,13 @@ gumshoe.init({
 
 const offset = function() {
   if(window.innerWidth > '1199') {
-    return '114px'
+    return '95'
   } else if (window.innerWidth > '719') {
-    return '101'
+    return '95'
   } else {
     return '72'
   }
 }();
-console.log(offset)
-
 
 var scroll = new SmoothScroll('.scroll-to[href*="#"]', {
   header: '[data-scroll-header]',
@@ -506,9 +507,13 @@ window.onscroll = function() {
 }
 
 // some forms handler
-const priceForm = document.querySelector('.js-price-form');
-if (priceForm) {
-  formHadle(priceForm, 'success.html', 'rest.php');
+const freeForm1 = document.querySelector('.js-free1-form');
+if (freeForm1) {
+  formHadle(freeForm1, 'success.html', 'rest.php');
+}
+const freeForm2 = document.querySelector('.js-free2-form');
+if (freeForm2) {
+  formHadle(freeForm2, 'success.html', 'rest.php');
 }
 const bonusForm = document.querySelector('.js-bonus-form');
 

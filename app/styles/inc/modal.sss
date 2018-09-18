@@ -22,11 +22,15 @@
   
   &--full
     width: calc(100% - 20px) @sm calc(100% - 40px) @lg calc(100% - 50px) @xl calc(1200px - 40px)
-    padding: 35px 20px 30px 20px @sm 30px 40px @md 60px 74px
+    padding: 35px 4px 30px 20px @sm 30px 16px 30px 40px @md 60px 50px 60px 74px
     overflow: auto
 
     .modal__content
       max-height: 80vh
+
+    .experts__item--modal
+      padding-right: 16px @sm 24px
+      box-sizing: border-box
 
 
   &--video
