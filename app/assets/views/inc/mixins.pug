@@ -11,7 +11,7 @@ mixin next-block(link)
 mixin expert(item, full)
   .experts__visual
     .experts__avatar(class='experts__avatar--' + item.img)
-    .experts__item-button.btn.btn--small.btn--wide(data-show-id='recall' data-exp-id= item.id) Заказать сессию
+    .experts__item-button.btn.btn--small.btn--wide(data-show-id='recall' data-exp-id= item.id @click="activeModal = null; currentExpert = '"+item.id+"'") Заказать сессию
 
   .experts__text
     .experts__name= item.name
@@ -19,7 +19,7 @@ mixin expert(item, full)
     .experts__xp= item.xp
     if(!full)
       .experts__desc= item.desc
-      .experts__detail(data-show-id= item.id) Подробнее
+      .experts__detail.expert-detail(@click="activeModal = 'short-form "+item.id+"'") Подробнее
 
     if(full)
       .experts__desc.experts__desc--full!= item.descFull

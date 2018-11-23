@@ -1,5 +1,5 @@
 [data-basicLightbox]
-  display: none !important
+  // display: none !important
 
 .basicLightbox
   background: rgba(0, 0, 0, .7)
@@ -12,9 +12,20 @@
 
 .modal
   background: #fff
-  position: relative
   margin: 0 auto
   display: none
+  position: relative
+
+  .modal__content
+    max-height: 80vh
+  
+  &__inner
+    width: calc(100% - 20px) @sm calc(100% - 40px) @lg calc(100% - 50px) @xl calc(1200px - 40px)
+    margin: 0 auto
+    background-color: #fff
+    padding: 35px 4px 30px 20px @sm 30px 16px 30px 40px @md 60px 50px 60px 74px
+    overflow: auto
+    position: relative
 
   &--recall
     width: calc(100% - 20px) @sm 460px
@@ -24,6 +35,15 @@
     width: calc(100% - 20px) @sm calc(100% - 40px) @lg calc(100% - 50px) @xl calc(1200px - 40px)
     padding: 35px 4px 30px 20px @sm 30px 16px 30px 40px @md 60px 50px 60px 74px
     overflow: auto
+
+  &--vue
+    display: block
+    position: fixed 0 0 0 0
+    z-index: 99999
+    background-color: rgba(0,0,0,.2)
+    width: 100% !important
+    box: center middle
+    overflow: hidden
 
     .modal__content
       max-height: 80vh
@@ -43,7 +63,7 @@
   &__close
     background: svg-load('close-modal.svg', fill: $secondary-dark) center / contain
     size: 20px
-    position: absolute 9px 9px null null
+    position: absolute 14px 20px null null
     cursor: pointer
     transition: $transition
     z-index: 2

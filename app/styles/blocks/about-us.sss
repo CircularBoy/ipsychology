@@ -9,7 +9,7 @@
     max-width: 100% @xl 50%
     box-sizing: border-box
     padding: 0 10px @xl 0 30px
-    box: vertical space-between
+    box: vertical top
 
     &:first-child
       padding: 0
@@ -23,7 +23,7 @@
     padding: 0 20px @sm 0
     width: 100% @xl 70%
     margin: 0 auto
-    margin-bottom: 35px @md 50px
+    margin-bottom: 35px @md 100px
 
     &--hide-md
       display: none @md block
@@ -160,19 +160,28 @@
 
 
   &__logoes
-    box: vertical center middle
+    box: vertical center middle @sm horizontal middle space-between @xl vertical center middle
 
   &__logo
-    max-width: 100%
+    max-width: 240px @sm 30% @xl 240px
+    opacity: .75
+    transform: scale(1)
+    transition: .2s all
+    will-change: opacity, scale
+
+    &:first-child
+      opacity: 1
+
+    &:hover
+      opacity: 1
+      transform: scale(1.1)
+
+    &-img
+      max-width: 100%
 
     & + & 
-      margin-top: 50px @xl 90px
+      margin-top: 30px @xl 70px
 
-    &:nth-of-type(3)
-      width: 178px @xl initial
-
-    &:nth-of-type(4)
-      width: 140px @xl initial
 
 .simplebar-track
   background-color: rgba(52, 49, 38, 0.10)

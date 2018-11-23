@@ -1,7 +1,9 @@
 each item in experts
-  .modal.modal--full(data-id= item.id)
-    .modal__close(onclick='closeModal()')
+  transition(name="fade")
+    .modal.modal--full.modal--vue(v-show="activeModal === 'short-form "+item.id+"'")
+      .modal__inner
+        .modal__close(@click="activeModal = null")
 
-    .modal__content(data-simplebar data-simplebar-auto-hide="false")
-      .experts__item.experts__item--modal
-        +expert(item, true)
+        .modal__content(data-simplebar data-simplebar-auto-hide="false")
+          .experts__item.experts__item--modal
+            +expert(item, true)

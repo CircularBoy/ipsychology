@@ -55,3 +55,12 @@
   &--end
     transform: translateY(0) scale(1)
     opacity: 1
+
+.fade-enter-active, .fade-leave-active
+  transition: opacity .3s ease-in-out
+
+.fade-enter, .fade-leave-to
+  opacity: 0
+
+transition
+  display: none

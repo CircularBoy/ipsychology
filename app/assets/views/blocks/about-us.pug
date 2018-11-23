@@ -53,5 +53,6 @@ section#about.about-us
 
         .about-us__logoes
           each item in aboutLogoes
-            img.about-us__logo(src='img/about-us/' + item)
+            a.about-us__logo(href=item.link target='new_blank')
+              img.about-us__logo-img(src='img/about-us/press/' + item.img)
             

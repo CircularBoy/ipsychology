@@ -1,5 +1,11 @@
 // document.querySelector('.hero').classList.add('hero--load');
-
+new Vue({
+  el: '#app',
+  data: {
+    activeModal: null,
+    currentExpert: null
+  }
+});
 //
 //jquery parents() pure js
 //
